@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='cattt.gif' width='500' align="left">
+<img src='cattt.gif' width='460' align="left">
 <p float="left">
 
  
@@ -11,8 +11,7 @@
 💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
 
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&cover_image=true&theme=novatorem&show_offline=false&background_color=4f9ef3&bar_color=183367&bar_color_cover=false)](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&redirect=true)
-
-<center>𝗡𝗶𝗰𝗲 𝘁𝗼 𝗺𝗲𝗲𝘁 𝗬𝗼𝘂!</center>
+<center> 𝗡𝗶𝗰𝗲 𝘁𝗼 𝗺𝗲𝗲𝘁 𝗬𝗼𝘂!</center>
 
 
 # 𝗠𝗬 𝗗𝗜𝗦𝗖𝗢𝗥𝗗
