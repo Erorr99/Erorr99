@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='cat.gif' width='600' align="left">
+<img src='cat.gif' width='500' align="left">
 <p float="left">
 
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&cover_image=true&theme=novatorem&show_offline=false&background_color=4f9ef3&bar_color=183367&bar_color_cover=false)](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&redirect=true)
