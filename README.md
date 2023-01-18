@@ -3,16 +3,17 @@
 <img src='catttt.gif' width='450' align="left">
 <p float="left">
 
+<br>
+ 🖖🏼𝗛𝗲𝘆 𝗜'𝗺 𝗩 ↜(╰ •ω•)╯
+<br>
+ 🤳🏼𝗜'𝗺 𝗻𝗲𝘄𝗯𝗶𝗲 𝗮 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗲𝗿.
+<br>
+ 💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
  
-🖖🏼𝗛𝗲𝘆 𝗜'𝗺 𝗩 ↜(╰ •ω•)╯
-<br>
-🤳🏼𝗜'𝗺 𝗻𝗲𝘄𝗯𝗶𝗲 𝗮 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗲𝗿.
-<br>
-💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
-
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&cover_image=true&theme=novatorem&show_offline=false&background_color=4f9ef3&bar_color=183367&bar_color_cover=false)](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&redirect=true)
+<br>
 <center> 𝗡𝗶𝗰𝗲 𝘁𝗼 𝗺𝗲𝗲𝘁 𝗬𝗼𝘂!</center>
-
+<br>
 
 # 𝗠𝗬 𝗗𝗜𝗦𝗖𝗢𝗥𝗗
 
