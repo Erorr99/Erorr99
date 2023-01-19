@@ -51,7 +51,7 @@
 
 
 <div align="right"> 
-<img src='galaxy.gif' width='266'><img src='galaxy.gif' width='266'><img src='galaxy.gif' width='266'>
+<img src='galaxy.gif' width='270'><img src='galaxy.gif' width='270'><img src='galaxy.gif' width='270'>
 </div>
 
 <br>
