@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='catttt.gif' width='450' align="left">
+<img src='catttt.gif' width='470' align="left">
 <p float="left">
 
 <br>
@@ -51,7 +51,7 @@
 
 
 <div align="right"> 
-<img src='galaxy.gif' width='276'><img src='galaxy.gif' width='276'><img src='galaxy.gif' width='276'>
+<img src='galaxy.gif' width='280'><img src='galaxy.gif' width='280'><img src='galaxy.gif' width='280'>
 </div>
 
 <br>
