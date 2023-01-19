@@ -46,13 +46,7 @@
 
 <br>
 <br>
-<br>
 
-
-
-<div align="right"> 
-<img src='galaxy.gif' width='282'><img src='galaxy.gif' width='282'><img src='galaxy.gif' width='282'>
-</div>
 
 <br>
 <br>
@@ -61,4 +55,8 @@
 </div>
 <div align="center">
   𝗧𝗛𝗔𝗡𝗞 𝗬𝗢𝗨!
+</div>
+<br>
+<div align="right"> 
+<img src='galaxy.gif' width='282'><img src='galaxy.gif' width='282'><img src='galaxy.gif' width='282'>
 </div>
