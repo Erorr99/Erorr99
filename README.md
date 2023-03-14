@@ -30,6 +30,7 @@
 ![My Discord](https://discord-readme-badge.vercel.app/api?id=306734147534192640) 
 </div>
 
+<br>
 
 # 𝗟𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝗦𝗸𝗶𝗹𝗹𝘀
 
@@ -57,8 +58,6 @@
 
 ● [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube-music&logoColor=white)](https://www.youtube.com/channel/UC8-HjoLygxVWouYC87a0uBg)
 
-<br>
-<br>
 
 
 <br>
