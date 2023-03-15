@@ -15,22 +15,23 @@
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&cover_image=true&theme=novatorem&show_offline=false&background_color=4f9ef3&bar_color=183367&bar_color_cover=false)](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&redirect=true)
 
 <div align="center">
-  𝗡𝗶𝗰𝗲 𝘁𝗼 𝗺𝗲𝗲𝘁 𝘆𝗼𝘂!
+
+### 𝗡𝗶𝗰𝗲 𝘁𝗼 𝗺𝗲𝗲𝘁 𝘆𝗼𝘂!
 </div>
 <br>
 
 <div align="center"> 
 
 
-𝗠𝗬 𝗗𝗜𝗦𝗖𝗢𝗥𝗗
+### 𝗠𝗬 𝗗𝗜𝗦𝗖𝗢𝗥𝗗
 </div>
 <div align="center">
 
-<br>
 
 ![My Discord](https://discord-readme-badge.vercel.app/api?id=306734147534192640) 
 </div>
 
+<br>
 <br>
 <br>
 <br>
