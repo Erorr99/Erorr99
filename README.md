@@ -10,6 +10,7 @@
 <br>
 ┗ 💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
 </div>
+<br>
 
 [![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&cover_image=true&theme=novatorem&show_offline=false&background_color=4f9ef3&bar_color=183367&bar_color_cover=false)](https://spotify-github-profile.vercel.app/api/view?uid=21oywv6dkjsyyk3i7vk4l7rlq&redirect=true)
 
@@ -30,6 +31,8 @@
 ![My Discord](https://discord-readme-badge.vercel.app/api?id=306734147534192640) 
 </div>
 
+<br>
+<br>
 <br>
 
 # 𝗟𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝗦𝗸𝗶𝗹𝗹𝘀
