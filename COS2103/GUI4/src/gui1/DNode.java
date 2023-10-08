@@ -10,8 +10,12 @@ package gui1;
  */
 public class DNode {
 
-    Object INFOR;
+    Employee INFOR;
     DNode BACK = null;
     DNode FORW = null;
 
+    DNode(Employee INFOR){
+    this.INFOR = INFOR;
+    }
+    
 }

@@ -19,7 +19,10 @@ import java.net.URL;
  * @author MILLIONx
  */
 public class GUI4 extends javax.swing.JFrame {
-
+    
+    DNode START;
+    DNode LAST;
+    
     int positionX = 0, positionY = 0;
     int currentID;
     Main employeelist = new Main();
@@ -82,14 +85,15 @@ public class GUI4 extends javax.swing.JFrame {
 
 
 
-    public void displayEmp(boolean sort) {
-        if (sort) {
-            this.Sortsalary();
-        }
+    public void display() {
         DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
         model.setRowCount(0);
-        for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], age[i], String.format("%,d", salary[i])});
+        DNode PTR = null;
+        PTR = START;
+        while (PTR != null) {
+            Employee prod = PTR.INFOR;
+            model.addRow(new Object[]{prod.id, prod.name, prod.surname(), prod.salary()});
+            PTR = PTR.FORW;
         }
     }
 
@@ -97,7 +101,7 @@ public class GUI4 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
         model.setRowCount(0);
         for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], age[i], salary[i]});
+            model.addRow(new Object[]{id[i], name[i], surname[i], salary[i]});
 
         }
     }
@@ -106,7 +110,7 @@ public class GUI4 extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) this.jTable2.getModel();
         model.setRowCount(0);
         for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], age[i], salary[i]});
+            model.addRow(new Object[]{id[i], name[i], surname[i], salary[i]});
 
         }
     }
