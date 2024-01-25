@@ -13,35 +13,44 @@ import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import java.awt.Desktop;
 import java.net.URL;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author MILLIONx
  */
-public class GUI4 extends javax.swing.JFrame {
-    
-    DNode START;
-    DNode LAST;
-    
-    int positionX = 0, positionY = 0;
-    int currentID;
+public class APPGUI4 extends javax.swing.JFrame {
+
     Main employeelist = new Main();
     DNode cur = null;
 
+    int positionX = 0, positionY = 0;
+    int ID = 100;
+
     public void setDataAtFirst() {
-        cur = employeelist.START;
-        Employee person = (Employee) employeelist.START.INFOR;
-        jTextField1.setText("" + person.getId());
-        jTextField2.setText(person.getName());
-        jTextField3.setText(person.getSurname());
-        jTextField4.setText("" + person.getSalary());
+        if (employeelist.START != null) { // ตรวจสอบว่า START ไม่เป็น null
+            cur = employeelist.START;
+            Employee person = (Employee) cur.INFOR;
+            jTextField3.setText(String.valueOf(person.getId()));
+            jTextField7.setText(person.getName());
+            jTextField4.setText(person.getSurname());
+            jTextField1.setText(String.valueOf(person.getAge()));
+            jTextField2.setText(String.valueOf(person.getSalary()));
+        } else {
+            // ใส่โค้ดเมื่อ employeelist.START เป็น null
+            jTextField3.setText("");
+            jTextField7.setText("");
+            jTextField4.setText("");
+            jTextField1.setText("");
+            jTextField2.setText("");
+        }
     }
 
-    public GUI4() {
+    public APPGUI4() {
         initComponents();
         this.jPanel9.setBackground(whiteColor);
         this.jLabel8.setForeground(selectColor);
-//        setmyData();
 //        jTextField1.setText(name[cur]);
 //        jTextField2.setText(surname[cur]);
 //        jTextField3.setText(String.valueOf(age[cur]));
@@ -57,9 +66,9 @@ public class GUI4 extends javax.swing.JFrame {
 //        jTable1.getTableHeader().setForeground(new Color(32, 33, 34));
         jTable2.getTableHeader().setFont(new Font("PK Uttaradit Medium", Font.PLAIN, 14));
         jTable3.getTableHeader().setFont(new Font("PK Uttaradit Medium", Font.PLAIN, 14));
-        this.showtable();
-        this.showtable3();
-        this.showtable2();
+//        this.showtable();
+//        this.showtable3();
+//        this.showtable2();
 
         jTable1.setShowGrid(true);
         jTable1.setGridColor(new Color(211, 211, 211));
@@ -68,60 +77,110 @@ public class GUI4 extends javax.swing.JFrame {
     Color selectColor = new Color(115, 10, 10);
     Color whiteColor = new Color(211, 211, 211);
 
+    public void setmyData() {
 
-    public int findEmpIndexByID(int delID) {
-        int K = -1;
-        for (int i = 0; i < N; i++) {
-            if (id[i] == delID) {
-                K = i;
-            }
-        }
-        if (K == -1) {
-            return -1;
-        }
-        return K;
     }
 
+    public void ForTraversing() {
 
+    }
 
+    public void WhileTraversing() {
+
+    }
+
+    public int findEmpIndexByID() {
+        return 0;
+    }
+
+    public void delete(int K) { //(int LA[], int N, int K, int ITEM ){  //Inserting Operation
+
+    }  //Exit
+
+    public void Sortsalary() {
+
+    }
+
+    public void Sortage() {
+
+    }
+
+    public void Sortid() {
+
+    }
+
+//    public void Insert(int K, String new_name, String new_surname, int new_age, int new_salary) { //(int LA[], int N, int K, int ITEM ){  //Inserting Operation
+//        int J = N;
+//        while (J >= K) {
+//            name[J + 1] = name[J];
+//            surname[J + 1] = surname[J];
+//            age[J + 1] = age[J];
+//            salary[J + 1] = salary[J];
+//            J--;
+//        }//end of Step 2 loop
+//        id[K] = ++currentID;
+//        name[K] = new_name;
+//        surname[K] = new_surname;
+//        age[K] = new_age;
+//        salary[K] = new_salary;
+//        N++;
+//    }  //Exit
+    public void Insert(String new_name, String new_surname, int new_age, int new_salary) {
+
+    }
+
+    public int[] searchEmpSW(String fname) {
+        int emps[] = new int[10];
+        return emps;
+    }
+
+    public void displayEmp(boolean sort) {
+
+    }
 
     public void display() {
+        // กำหนด DefaultTableModel ใหม่
         DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) this.jTable2.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) this.jTable3.getModel();
+// เคลียร์ข้อมูลที่มีอยู่ในตาราง (ถ้ามี)
         model.setRowCount(0);
-        DNode PTR = null;
-        PTR = START;
+        model2.setRowCount(0);
+        model3.setRowCount(0);
+
+// รับค่า PTR จาก employeelist.START
+        DNode PTR = employeelist.START;
+
+// วนลูปเพื่อเพิ่มข้อมูลลงในตาราง
+        int i = 0;
         while (PTR != null) {
-            Employee prod = PTR.INFOR;
-            model.addRow(new Object[]{prod.id, prod.name, prod.surname(), prod.salary()});
+            Employee person = (Employee) PTR.INFOR;
+            model.addRow(new Object[]{person.getId(), person.getName(), person.getSurname(), person.getAge(), person.getSalary()});
+            model2.addRow(new Object[]{person.getId(), person.getName(), person.getSurname(), person.getAge(), person.getSalary()});
+            model3.addRow(new Object[]{person.getId(), person.getName(), person.getSurname(), person.getAge(), person.getSalary()});
+
+            // เลื่อน PTR ไปยังรายการถัดไป
             PTR = PTR.FORW;
+            i++;
         }
     }
-
-    public void showtable() {
-        DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
-        model.setRowCount(0);
-        for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], salary[i]});
-
-        }
-    }
-
-    public void showtable2() {
-        DefaultTableModel model = (DefaultTableModel) this.jTable2.getModel();
-        model.setRowCount(0);
-        for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], salary[i]});
-
-        }
-    }
-
-    public void showtable3() {
-        DefaultTableModel model = (DefaultTableModel) this.jTable3.getModel();
-        model.setRowCount(0);
-        for (int i = 0; i < N; i++) {
-            model.addRow(new Object[]{id[i], name[i], surname[i], age[i], salary[i]});
-        }
-    }
+//    public void showtable() {
+//        DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
+//        model.setRowCount(0);
+//
+//    }
+//
+//    public void showtable2() {
+//        DefaultTableModel model = (DefaultTableModel) this.jTable2.getModel();
+//        model.setRowCount(0);
+//
+//    }
+//
+//    public void showtable3() {
+//        DefaultTableModel model = (DefaultTableModel) this.jTable3.getModel();
+//        model.setRowCount(0);
+//
+//    }
 
 //    public void Java_Table_Style() {
 //        jTable1.setShowGrid(true);
@@ -154,8 +213,6 @@ public class GUI4 extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jPanel24 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
@@ -164,8 +221,12 @@ public class GUI4 extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
+        jPanel24 = new javax.swing.JPanel();
+        jButton13 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -199,11 +260,6 @@ public class GUI4 extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel20 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jButton11 = new javax.swing.JButton();
-        jPanel16 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -264,25 +320,25 @@ public class GUI4 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(43, 44, 46));
         jLabel1.setText("เงินเดือน");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, 30));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 30));
 
         jLabel3.setBackground(new java.awt.Color(43, 44, 46));
         jLabel3.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(43, 44, 46));
         jLabel3.setText("ID");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 30, 30));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 30, 30));
 
         jLabel4.setBackground(new java.awt.Color(43, 44, 46));
         jLabel4.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(43, 44, 46));
-        jLabel4.setText("ชื่อ");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 50, 30));
+        jLabel4.setText("สกุล");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, 30));
 
         jLabel5.setBackground(new java.awt.Color(43, 44, 46));
         jLabel5.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(43, 44, 46));
-        jLabel5.setText("นามสกุล");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 70, 30));
+        jLabel5.setText("อายุ");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, 30));
 
         jTextField1.setBackground(new java.awt.Color(43, 44, 46));
         jTextField1.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
@@ -292,7 +348,7 @@ public class GUI4 extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 140, 30));
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 140, 30));
 
         jTextField2.setBackground(new java.awt.Color(43, 44, 46));
         jTextField2.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
@@ -302,7 +358,7 @@ public class GUI4 extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 140, 30));
+        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 140, 30));
 
         jTextField3.setBackground(new java.awt.Color(43, 44, 46));
         jTextField3.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
@@ -312,7 +368,7 @@ public class GUI4 extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 140, 30));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 140, 30));
 
         jTextField4.setBackground(new java.awt.Color(43, 44, 46));
         jTextField4.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
@@ -322,47 +378,12 @@ public class GUI4 extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 140, 30));
-
-        jPanel24.setBackground(new java.awt.Color(43, 44, 46));
-
-        jButton13.setBackground(new java.awt.Color(43, 44, 46));
-        jButton13.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 14)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(221, 221, 220));
-        jButton13.setText("กลับไปสุด");
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton13MouseExited(evt);
-            }
-        });
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel4.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 80, 40));
+        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 140, 30));
 
         jPanel8.setBackground(new java.awt.Color(43, 44, 46));
 
         jButton3.setBackground(new java.awt.Color(43, 44, 46));
-        jButton3.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(221, 221, 220));
         jButton3.setText("ย้อนกลับ");
         jButton3.setBorderPainted(false);
@@ -385,19 +406,21 @@ public class GUI4 extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 80, 40));
+        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 90, 40));
 
         jPanel13.setBackground(new java.awt.Color(43, 44, 46));
 
         jButton2.setBackground(new java.awt.Color(43, 44, 46));
-        jButton2.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(221, 221, 220));
         jButton2.setText("ถัดไป");
         jButton2.setBorderPainted(false);
@@ -420,16 +443,14 @@ public class GUI4 extends javax.swing.JFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 80, 40));
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 90, 40));
 
         jPanel15.setBackground(new java.awt.Color(43, 44, 46));
 
@@ -458,45 +479,57 @@ public class GUI4 extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 90, 40));
+        jPanel4.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 90, 40));
 
         jTable2.setBackground(new java.awt.Color(43, 44, 46));
         jTable2.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 15)); // NOI18N
         jTable2.setForeground(new java.awt.Color(221, 221, 220));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "ชื่อ", "นามสกุล", "เงินเดือน"
+                "ID", "ชื่อ", "นามสกุล", "อายุ", "เงินเดือน"
             }
         ));
         jTable2.setSelectionBackground(new java.awt.Color(43, 44, 46));
         jTable2.setSelectionForeground(new java.awt.Color(221, 221, 220));
         jScrollPane3.setViewportView(jTable2);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 350, 400));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 400, 400));
+
+        jTextField7.setBackground(new java.awt.Color(43, 44, 46));
+        jTextField7.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(221, 221, 220));
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 140, 30));
+
+        jLabel26.setBackground(new java.awt.Color(43, 44, 46));
+        jLabel26.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(43, 44, 46));
+        jLabel26.setText("ชื่อ");
+        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
         jPanel23.setBackground(new java.awt.Color(43, 44, 46));
 
         jButton12.setBackground(new java.awt.Color(43, 44, 46));
-        jButton12.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 14)); // NOI18N
+        jButton12.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jButton12.setForeground(new java.awt.Color(221, 221, 220));
-        jButton12.setText("ถัดไปสุด");
+        jButton12.setText("กลับสุด");
         jButton12.setBorderPainted(false);
         jButton12.setContentAreaFilled(false);
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -517,14 +550,49 @@ public class GUI4 extends javax.swing.JFrame {
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 80, 40));
+        jPanel4.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 90, 40));
+
+        jPanel24.setBackground(new java.awt.Color(43, 44, 46));
+
+        jButton13.setBackground(new java.awt.Color(43, 44, 46));
+        jButton13.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
+        jButton13.setForeground(new java.awt.Color(221, 221, 220));
+        jButton13.setText("ถัดไปสุด");
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton13MouseExited(evt);
+            }
+        });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 90, 40));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -533,15 +601,15 @@ public class GUI4 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(43, 44, 46));
-        jLabel7.setText("ID");
+        jLabel7.setText("ชื่อ");
 
         jLabel12.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(43, 44, 46));
-        jLabel12.setText("ชื่อ");
+        jLabel12.setText("นามสกุล");
 
         jLabel14.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(43, 44, 46));
-        jLabel14.setText("นามสกุล");
+        jLabel14.setText("อายุ");
 
         jLabel18.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(43, 44, 46));
@@ -624,55 +692,56 @@ public class GUI4 extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(57, 57, 57)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(21, 21, 21)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 107, Short.MAX_VALUE))
+                        .addComponent(jLabel14)
+                        .addGap(30, 30, 30)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField9)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel19)
-                .addGap(53, 53, 53)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12))
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addGap(95, 95, 95))
         );
 
         jTabbedPane1.addTab("tab2", jPanel5);
@@ -726,6 +795,9 @@ public class GUI4 extends javax.swing.JFrame {
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTable3MouseEntered(evt);
             }
         });
         jScrollPane1.setViewportView(jTable3);
@@ -896,11 +968,11 @@ public class GUI4 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "ชื่อ", "ชื่อ", "นามสกุล"
+                "ID", "ชื่อ", "ชื่อ", "นามสกุล", "อายุ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -933,103 +1005,6 @@ public class GUI4 extends javax.swing.JFrame {
         jTable1.getAccessibleContext().setAccessibleName("");
 
         jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 650, 320));
-
-        jPanel20.setBackground(new java.awt.Color(221, 221, 220));
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(43, 44, 46)), "จัดเรียง", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("PK Uttaradit Medium", 0, 14), new java.awt.Color(43, 44, 46))); // NOI18N
-        jPanel20.setForeground(new java.awt.Color(43, 44, 46));
-
-        jPanel19.setBackground(new java.awt.Color(43, 44, 46));
-
-        jButton11.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(221, 221, 220));
-        jButton11.setText("ID");
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton11MouseExited(evt);
-            }
-        });
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel16.setBackground(new java.awt.Color(43, 44, 46));
-
-        jButton5.setBackground(new java.awt.Color(43, 44, 46));
-        jButton5.setFont(new java.awt.Font("PK Uttaradit Medium", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(221, 221, 220));
-        jButton5.setText("เงินเดือน");
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton5MouseExited(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 240, -1));
 
         jTabbedPane1.addTab("tab4", jPanel7);
 
@@ -1651,22 +1626,26 @@ public class GUI4 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        cur = employeelist.LAST;
-        Employee person = (Employee) cur.INFOR;
-        jTextField1.setText("" + person.getId());
-        jTextField2.setText(person.getName());
-        jTextField3.setText(person.getSurname());
-        jTextField4.setText("" + person.getSalary());
+        if (cur != null && cur.BACK != null) {
+            cur = cur.BACK;
+            Employee person = (Employee) cur.INFOR;
+            jTextField3.setText(String.valueOf(person.getId()));
+            jTextField7.setText(person.getName());
+            jTextField4.setText(person.getSurname());
+            jTextField1.setText(String.valueOf(person.getAge()));
+            jTextField2.setText(String.valueOf(person.getSalary()));
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (cur.FORW != null) {
+        if (cur != null && cur.FORW != null) {
             cur = cur.FORW;
             Employee person = (Employee) cur.INFOR;
-            jTextField1.setText("" + person.getId());
-            jTextField2.setText(person.getName());
-            jTextField3.setText(person.getSurname());
-            jTextField4.setText("" + person.getSalary());
+            jTextField3.setText(String.valueOf(person.getId()));
+            jTextField7.setText(person.getName());
+            jTextField4.setText(person.getSurname());
+            jTextField1.setText(String.valueOf((char) person.getAge()));
+            jTextField2.setText(String.valueOf(person.getSalary()));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -1694,8 +1673,8 @@ public class GUI4 extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        this.jTextArea1.setText("");
 //        TraversingToN();
-        showtable2();
-
+//        showtable2();
+        display();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
@@ -1707,34 +1686,6 @@ public class GUI4 extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton4.setForeground(new Color(211, 211, 210));
     }//GEN-LAST:event_jButton4MouseExited
-
-    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-        // TODO add your handling code here:
-        jButton5.setForeground(new Color(180, 18, 18));
-    }//GEN-LAST:event_jButton5MouseEntered
-
-    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        // TODO add your handling code here:
-        jButton5.setForeground(new Color(211, 211, 210));
-    }//GEN-LAST:event_jButton5MouseExited
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-//        this.jTextArea1.setText("");
-        Sortsalary();
-//        int K = LB;
-//        jTextArea1.setText(jTextArea1.getText() + "\n" + "        ชื่อ            สกุล            อายุ            เงินเดือน\n");
-//        jTextArea1.setText(jTextArea1.getText() + "\n" + "===========================================\n");
-//        while (K <= N - 1) {            //Step 2 
-//            jTextArea1.setText(jTextArea1.getText() + "\n    " + name[K] + "            "
-//                    + surname[K] + "            " + age[K] + "            " + salary[K] + "  \n");
-//            System.out.print(name[K] + ","); //Apply PROCESS to LA[K] 
-//            K++;
-//        }
-//        jTextArea1.setText(jTextArea1.getText() + "===========================================\n");
-        showtable();
-
-
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
         // TODO add your handling code here:
@@ -1756,28 +1707,14 @@ public class GUI4 extends javax.swing.JFrame {
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         // TODO add your handling code here:
-        int targets[];
-        char c = evt.getKeyChar();
-
-        String fname = this.jTextField6.getText();
-        String find = fname; // ตัวแปรไว้ค้นหา
-        if (c != '\b') { // เช็คว่า เรากด backspace รึป่าว
-            find = fname + c;  // บวกตัวพิมพ์ ล่าสุดเข้าไป
-        }
-        if (find.isEmpty()) { // เมื่อลบค้นหาจนสุด 
-            this.displayEmp(true); // แสดงหมดเลย
-            return;
-        }
-        targets = this.searchEmpSW(find); // นำชื่อไปค้นหา อันนี้หาแบบ หลายตัว indexs
-        DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
-        model.setRowCount(0); // ลบ row ออกให้หมด
-        for (int i = 0; i < targets.length; i++) {
-            int target = targets[i];
-            if (target == -1) {
-                continue; // ข้าม index ที่ไม่เจอ 
-            }
-            model.addRow(new Object[]{id[target], surname[target], age[target], String.format("%,d", salary[target])});
-        }
+                String name = this.jTextField6.getText();
+        String find = name;
+        DefaultTableModel obj = (DefaultTableModel) jTable1.getModel();
+        TableRowSorter<DefaultTableModel> obj1 = new TableRowSorter<>(obj);
+        jTable1.setRowSorter(obj1);
+        obj1.setRowFilter(RowFilter.regexFilter(find));
+//            model.addRow(new Object[]{name[target], surname[target], age[target], String.format("%,d", salary[target])});
+        
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -1802,7 +1739,7 @@ public class GUI4 extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        this.setState(GUI4.ICONIFIED);
+        this.setState(APPGUI4.ICONIFIED);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
@@ -1825,7 +1762,7 @@ public class GUI4 extends javax.swing.JFrame {
             String name = Model.getValueAt(jTable3.getSelectedRow(), 1).toString();
             String surname = Model.getValueAt(jTable3.getSelectedRow(), 2).toString();
             int age = (int) Model.getValueAt(jTable3.getSelectedRow(), 3);
-            int salary = (int) Model.getValueAt(jTable3.getSelectedRow(), 4);
+            float salary = (float) Model.getValueAt(jTable3.getSelectedRow(), 4);
 
             jTextField12.setText(String.valueOf(id));
             jTextField13.setText(name);
@@ -1849,31 +1786,43 @@ public class GUI4 extends javax.swing.JFrame {
 //            tblModel.setValueAt(surname , jTable3.getSelectedRow(),1);
 //            tblModel.setValueAt(age , jTable3.getSelectedRow(),2);
 //            tblModel.setValueAt(salary , jTable3.getSelectedRow(),3);
-        showtable3();
-
+//        showtable3();
+display() ;
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 
         DefaultTableModel tblModel = (DefaultTableModel) jTable3.getModel();
 
-//         delete(Integer.parseInt(jTextField12.getText()));
-        if (jTable3.getSelectedRowCount() == 1) {
-            int select = JOptionPane.showConfirmDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ต้องการจะแทรกข้อมูลนี้ใช้หรือไหม่  </b> </html> ", "การยืนยัน", JOptionPane.YES_NO_OPTION);
+        if (jTextField12.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ท่านยังไม่เลือกข้อมูลที่จะลบ: </b> </html> ");
+        } else {
+            int IDToInsert = Integer.parseInt(jTextField12.getText());
 
-            if (select == 0) {
-                delete(jTable3.getSelectedRow());
-                tblModel.removeRow(jTable3.getSelectedRow());
-                JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ลบสำเร็จ: </b> </html> ");
+            // Check if the ID already exists in the list
+            boolean idExists = employeelist.containsId(IDToInsert);
+            if (idExists) {
+                int i = JOptionPane.showConfirmDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ต้องการจะแทรกข้อมูลนี้ใช้หรือไหม่  </b> </html> ", "การยืนยัน", JOptionPane.YES_NO_OPTION);
+                if (i == 0) {
+                    if (employeelist.DELTWL(Integer.parseInt(jTextField12.getText()))) {
+                        JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ลบสำเร็จ: </b> </html> ");
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ID นี้ไม่มีอยู่ในรายการ </b> </h tml> ");
+
             }
-            if (select == 1) {
-            }
-            JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">ยกเลิกการลบเรียบร้อย </b> </h tml> ");
         }
-//        findEmpIndexByID(jTable3.getSelectedRow());
-        if (jTextField12.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">กรุณาเลือกช่องที่จะลบ: </b> </html> ");
-        }
+        display();
+        setDataAtFirst();
+        jTextField12.setText("");
+        jTextField13.setText("");
+        jTextField14.setText("");
+        jTextField15.setText("");
+        jTextField16.setText("");
+
+//         delete(Integer.parseInt(jTextField12.getText()));
+
 
 //        String IDStr = this.jTextField12.getText();
 //        if (IDStr.isEmpty()) {
@@ -1893,22 +1842,6 @@ public class GUI4 extends javax.swing.JFrame {
     private void jTable3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable3AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable3AncestorAdded
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        this.Sortid();
-        showtable();
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseEntered
-        // TODO add your handling code here:
-        jButton11.setForeground(new Color(180, 18, 18));
-    }//GEN-LAST:event_jButton11MouseEntered
-
-    private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
-        // TODO add your handling code here:\
-        jButton11.setForeground(new Color(211, 211, 210));
-    }//GEN-LAST:event_jButton11MouseExited
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
@@ -1935,16 +1868,31 @@ public class GUI4 extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        if (jTextField8.getText().isEmpty() || jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() || jTextField11.getText().isEmpty()) {
+
+        if (jTextField8.getText().trim().isEmpty()
+                || jTextField9.getText().trim().isEmpty()
+                || jTextField10.getText().trim().isEmpty()
+                || jTextField11.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "<html><b style=\"font-size:12px; font-family:PK Uttaradit Medium;\">กรุณากรอกข้อมูลให้ครบทุกช่อง</b></html>");
-            return;
+        } else {
+            int i = JOptionPane.showConfirmDialog(null, "<html><b style=\"font-size:12px; font-family:PK Uttaradit Medium;\">ต้องการจะเพิ่มข้อมูลนี้ใช่หรือไม่</b></html>", "ยืนยัน", JOptionPane.YES_NO_OPTION);
+            if (i == 0) {
+
+                ID++;
+                Employee person = new Employee();
+
+                person.setId(ID);
+                person.setName(jTextField8.getText());
+                person.setSurname(jTextField9.getText());
+                person.setAge(Integer.parseInt(jTextField10.getText()));
+                person.setSalary(Float.parseFloat(jTextField11.getText()));
+                // Node NEW = new Node();
+                //  NEW.INFOR = person;
+                employeelist.INSTFIRST(person);
+                setDataAtFirst();
+
+            }
         }
-        Employee person = new Employee();
-        person.setId(Integer.parseInt(jTextField8.getText()));
-        person.setName(jTextField9.getText());
-        person.setSurname(jTextField10.getText());
-        person.setSalary(Float.parseFloat(jTextField11.getText()));
-        JOptionPane.showMessageDialog(null, "<html><b style=\" font-size:12px; font-family:PK Uttaradit Medium;\">เพิ่มข้อมูลสำเร็จ: </b> </html> ");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
@@ -2013,6 +1961,10 @@ public class GUI4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField8KeyTyped
 
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
     private void jButton12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12MouseEntered
@@ -2023,13 +1975,7 @@ public class GUI4 extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        cur = employeelist.LAST;
-        Employee person = (Employee) cur.INFOR;
-        jTextField1.setText("" + person.getId());
-        jTextField2.setText(person.getName());
-        jTextField3.setText(person.getSurname());
-        jTextField4.setText("" + person.getSalary());
-
+        setDataAtFirst();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
@@ -2042,8 +1988,24 @@ public class GUI4 extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        setDataAtFirst();
+        if (employeelist.LAST != null) {
+            cur = employeelist.LAST;
+            Employee person = (Employee) cur.INFOR;
+            jTextField3.setText(String.valueOf(person.getId()));
+            jTextField7.setText(person.getName());
+            jTextField4.setText(person.getSurname());
+            jTextField1.setText(String.valueOf(person.getAge()));
+            jTextField2.setText(String.valueOf(person.getSalary()));
+        } else {
+            // ไม่มีข้อมูลใน employeelist.LAST
+            // แสดงการแจ้งเตือนหรือทำการจัดการตามที่คุณต้องการ
+            JOptionPane.showMessageDialog(null, "ไม่มีข้อมูลในรายการ");
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jTable3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable3MouseEntered
 
     /**
      * @param args the command line arguments
@@ -2063,19 +2025,19 @@ public class GUI4 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI4.class
+            java.util.logging.Logger.getLogger(APPGUI4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI4.class
+            java.util.logging.Logger.getLogger(APPGUI4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI4.class
+            java.util.logging.Logger.getLogger(APPGUI4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI4.class
+            java.util.logging.Logger.getLogger(APPGUI4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -2086,7 +2048,7 @@ public class GUI4 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI4().setVisible(true);
+                new APPGUI4().setVisible(true);
             }
         });
     }
@@ -2094,13 +2056,11 @@ public class GUI4 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -2123,6 +2083,7 @@ public class GUI4 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2137,11 +2098,8 @@ public class GUI4 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -2173,6 +2131,7 @@ public class GUI4 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel profile;
