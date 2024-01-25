@@ -30,7 +30,6 @@
 <br>
 <br>
 
-<div align="center"> 
 
 # STATS
 
