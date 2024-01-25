@@ -74,5 +74,5 @@
 </div>
 <br>
 <div align="right"> 
-<img src='bk.gif' width='1180'>
+<img src='Footer.gif' width='1180'>
 </div>
