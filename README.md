@@ -29,10 +29,10 @@
 <br>
 <br>
 <br>
-<br>
+
 <div align="center"> 
 
-### STATS
+# STATS
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=error99&show_icons=true&bg_color=00000000&title_color=ec1e4b&border_radius=2.5&text_color=ec1e4&icon_color=e9eafd)
 
