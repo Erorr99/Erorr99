@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='Pro.gif' width='450' align="left">
+<img src='M-ART.gif' width='350' align="left">
 <p float="left">  
 
 <br>                    
@@ -31,6 +31,7 @@
 <br>
 <br>
 <br>
+
 # STATS
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Erorr99&show_icons=true&bg_color=00000000&title_color=ec1e4b&border_radius=2.5&text_color=ec1e4&icon_color=e9eafd)
