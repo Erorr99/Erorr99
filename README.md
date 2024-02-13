@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='All.gif' width='450' align="left">
+<img src='All.gif' width='400' align="left">
 <p float="left">  
 
 <br>                    
@@ -25,11 +25,8 @@
 
 </div>
 <br>
-<br>
-<br>
 
 # STATS
-
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Erorr99&show_icons=true&bg_color=00000000&title_color=ec1e4b&border_radius=2.5&text_color=ec1e4&icon_color=e9eafd)
 
 # 𝗟𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝗦𝗸𝗶𝗹𝗹𝘀
