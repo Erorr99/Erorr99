@@ -1,6 +1,6 @@
 # 🅜🅨 ​ 🅟🅡🅞🅕🅘🅛🅔 
 <p float="left">
-<img src='M-ART.gif' width='350' align="left">
+<img src='All.gif' width='450' align="left">
 <p float="left">  
 
 <br>                    
