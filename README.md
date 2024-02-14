@@ -66,5 +66,5 @@
 </div>
 <br>
 <div align="right"> 
-<img src='Footer.gif' width='1180'>
+<svg src ="/snake.svg">
 </div>
