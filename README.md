@@ -3,7 +3,7 @@
 <img src='All.gif' width='400' align="left">
 <p float="left">  
 
-<br>                    
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=3000&pause=500&color=F70505&random=false&width=200&height=60&lines=KU7IR4_;Programing;Artist)](https://git.io/typing-svg)            
 ┏ 🖖🏼𝗛𝗲𝘆 𝗜'𝗺 𝗩 ↜(╰ •ω•)╯
 <br> 
 ┣ 🤳🏼𝗜'𝗺 𝗻𝗲𝘄𝗯𝗶𝗲 𝗮 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗲𝗿.
