@@ -3,12 +3,12 @@
 <img src='All.gif' width='400' align="left">
 <p float="left">  
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=3000&pause=500&color=F70505&random=false&width=200&height=60&lines=KU7IR4_;Programing;Artist)](https://git.io/typing-svg)            
-┏ 🖖🏼𝗛𝗲𝘆 𝗜'𝗺 𝗩 ↜(╰ •ω•)╯
+ㅤ[![Typing SVG](https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=3000&pause=500&color=F70505&random=false&width=200&height=60&lines=KU7IR4_;Programing;Artist)](https://git.io/typing-svg)            
+ㅤ┏ 🖖🏼𝗛𝗲𝘆 𝗜'𝗺 𝗩 ↜(╰ •ω•)╯
 <br> 
-┣ 🤳🏼𝗜'𝗺 𝗻𝗲𝘄𝗯𝗶𝗲 𝗮 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗲𝗿.
+ㅤ┣ 🤳🏼𝗜'𝗺 𝗻𝗲𝘄𝗯𝗶𝗲 𝗮 𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗲𝗿.
 <br>
-┗ 💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
+ㅤ┗ 💻𝘀𝘁𝘂𝗱𝘆𝗶𝗻𝗴 𝗶𝗻 𝗼𝗿𝗱𝗲𝗿 𝘁𝗼 𝗯𝗲 𝘂𝘀𝗲𝗱 𝗶𝗻 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 
 </div>
 <br>
 
